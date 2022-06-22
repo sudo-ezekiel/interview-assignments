@@ -2,18 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Header } from '../layouts/Header';
 import store from '../app/store';
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-    Navigate,
-    useHistory,
-    useLocation
-} from "react-router-dom";
+import { Navigate, Outlet } from 'react-router-dom';
 
-export const AuthRoute = ({ children }) => {
+export const AuthRoute = () => {
     const [authenticated, setAuthenticated] = useState(false);
+    // double render fix
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
@@ -26,5 +19,5 @@ export const AuthRoute = ({ children }) => {
         setLoaded(true);
     }, [])
 
-    return loaded ? authenticated ? <><Header />{children} authenticated</> : <Navigate to="/login" /> : null;
+    return loaded ? authenticated ? <><Header /><Outlet /> authenticated</> : <Navigate to="/login" /> : null;
 }
