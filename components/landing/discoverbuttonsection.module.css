@@ -1,0 +1,47 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+}
+
+.discoverButtonSection {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+  border-top: 0.2rem solid #dae6e6;
+  color: #dae6e6;
+}
+
+.discoverButtonSection .label {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  width: 30%;
+  max-width: 450px;
+}
+
+.discoverButtonSectionArrow {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.discoverButtonSection:hover {
+  border-top: 0.2rem solid #eeff33;
+  color: black;
+  cursor: url("../../public/assets/img/cursor2.svg"), auto;
+}
+
+.discoverButtonSection:hover .label {
+  background-color: #eeff33;
+}
+
+.discoverButtonSection img {
+  filter: invert(100%) sepia(96%) saturate(301%) hue-rotate(168deg)
+    brightness(95%) contrast(89%);
+}
+
+.discoverButtonSection:hover img {
+  filter: invert(91%) sepia(75%) saturate(638%) hue-rotate(8deg)
+    brightness(103%) contrast(101%);
+}

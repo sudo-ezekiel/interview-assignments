@@ -1,0 +1,10 @@
+.heroImg {
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .heroImg {
+    display: none;
+  }
+}
