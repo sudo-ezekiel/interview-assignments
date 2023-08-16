@@ -4,7 +4,13 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  padding-left: 1rem;
   margin-left: auto;
+}
+
+.links a {
+  text-decoration: none;
+  color: #f6fbfb;
 }
 
 .navigation {
@@ -67,28 +73,39 @@
 .mobileLinks {
   display: none;
   color: #f6fbfb;
+  background-color: #2e3233;
   font-weight: 400;
   font-size: 16px;
   line-height: 26px;
-  align-items: center;
   padding: 0 2rem 0.5rem 2rem;
+  width: 100%;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
+.mobileLinks a {
+  text-decoration: none;
+  color: #f6fbfb;
+}
+
+@media only screen and (max-width: 768px) {
+  .navigation {
+    background-color: #2e3233;
+  }
   .mobileLinks {
-    display: block;
-    width: 100%;
+    display: flex;
+    padding-bottom: 2rem;
   }
 
   .extraLinks {
     padding-left: 0;
-    padding-top: 2rem;
     flex-direction: column;
     gap: 0;
+    margin-left: 0;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .links {
     display: none;
   }

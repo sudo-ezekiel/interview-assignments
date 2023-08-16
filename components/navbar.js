@@ -33,6 +33,7 @@ const Navbar = () => {
           <Link href="/">TALENTS</Link>
           <Link href="/">ENTREPRENEURS</Link>
           <Link href="/">INVESTORS</Link>
+          <div className="breakingSections"></div>
           <div className={styles.extraLinks}>
             <Link href="/">Innitiatives</Link>
             <Link href="/">Q&A</Link>

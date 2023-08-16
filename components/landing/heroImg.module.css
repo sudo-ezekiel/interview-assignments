@@ -3,8 +3,51 @@
   pointer-events: none;
 }
 
+.magneticWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  height: 445px;
+  width: 445px;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+}
+
+/*
+most closest top and left values to figma design
+-280 -210
+*/
+
+.pointingArrowBG {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: -200px;
+  left: -200px;
+}
+
 @media only screen and (max-width: 768px) {
   .heroImg {
     display: none;
+  }
+
+  .magneticWrapper {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+  .magneticWrapper {
+    height: 280px;
+    width: 280px;
+  }
+
+  .pointingArrowBG {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: -150px;
+    left: -150px;
   }
 }

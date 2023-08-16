@@ -6,11 +6,11 @@ import { gsap } from "gsap";
 const MagneticPull = ({
   children,
   className,
-  speed = 1,
-  tollerance = 0.8,
-  scale = 1.2,
-  debug = false,
-  borderRadius = 0,
+  speed,
+  tollerance,
+  scale,
+  debug,
+  borderRadius,
   ...props
 }) => {
   const $root = useRef();
@@ -41,7 +41,7 @@ const MagneticPull = ({
     gsap.to($item.current, {
       x: 0,
       y: 0,
-      ease: "elastic.out(1.1, .4)",
+      ease: "elastic.out(1.2, .5)",
       duration: 1.2,
     });
     gsap.set($hover.current, {

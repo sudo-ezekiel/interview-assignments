@@ -24,9 +24,9 @@
 }
 
 .sectionOne {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .sectionMiddle {
@@ -50,13 +50,44 @@
 
 /* END OF SECTION ONE */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+  .header {
+    font-size: 58px;
+    line-height: 58px;
+  }
+
+  .paragraph {
+    font-size: 14px;
+  }
+
+  .sectionOne {
+    display: grid;
+    grid-template-columns: none;
+    grid-gap: 20px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
   .header {
     font-size: 72px;
     line-height: 72px;
   }
 
   .paragraph {
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  .sectionOne {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+}
+
+@media only screen and (min-width: 959px) {
+  .sectionOne {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
   }
 }
