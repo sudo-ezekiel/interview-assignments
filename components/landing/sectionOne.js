@@ -12,12 +12,10 @@ const SectionOne = () => {
           birthplace <br />
           of ideas
         </h1>
-        <HeroImage src={"/assets/img/hero-img-01.png"} />
-        <HeroImage src={"/assets/img/hero-img-02.png"} />
-      </div>
+        <HeroImage src={"./assets/img/hero-img-01.png"} href="/" />
+        <HeroImage src={"./assets/img/hero-img-02.png"} href="/" />
 
-      <div className={styles.sectionOne}>
-        <HeroImage src={"/assets/img/hero-img-03.png"} />
+        <HeroImage src={"./assets/img/hero-img-03.png"} href="/" />
 
         <div className={styles.sectionMiddle}>
           <p className={styles.paragraph}>
@@ -31,7 +29,7 @@ const SectionOne = () => {
           <button className={styles.sectionMiddleButton}>
             <span>Become a citizen</span>
             <Image
-              src="/assets/img/arrowrighttop.png"
+              src="./assets/img/arrowrighttop.png"
               alt="Vercel Logo"
               width={16}
               height={16}
@@ -40,7 +38,7 @@ const SectionOne = () => {
           </button>
         </div>
 
-        <HeroImage src={"/assets/img/hero-img-04.png"} />
+        <HeroImage src={"./assets/img/hero-img-04.png"} href="/" />
       </div>
     </>
   );

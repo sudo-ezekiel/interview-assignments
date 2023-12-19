@@ -56,7 +56,7 @@ const ArrowPointingAtCursor = () => {
     <div className="arrowcircle">
       <div className="align">
         <Image
-          src="/assets/img/arrow.png"
+          src="./assets/img/arrow.png"
           alt="Vercel Logo"
           ref={element}
           className="arrow"
