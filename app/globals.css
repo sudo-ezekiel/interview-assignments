@@ -24,11 +24,11 @@ nav {
 
 /* CHANGING CURSOR  */
 body {
-  cursor: url("../public/assets/img/cursor1.svg"), auto;
+  cursor: url("/assets/img/cursor1.svg"), auto;
 }
 
 .magnetic-pull {
-  cursor: url("../public/assets/img/cursor3.svg"), auto;
+  cursor: url("/assets/img/cursor3.svg"), auto;
 }
 
 /* MAGNETING PULL */

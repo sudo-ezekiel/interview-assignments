@@ -34,6 +34,7 @@ const SectionOne = () => {
               width={16}
               height={16}
               priority
+              style={{ margin: "auto" }}
             />
           </button>
         </div>
