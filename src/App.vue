@@ -1,7 +1,9 @@
 <template>
   <NavbarDisplay />
-  <h1>Hello world</h1>
-  <AccordionController />
+  <main>
+    <h1>Hello world</h1>
+    <AccordionController />
+  </main>
 </template>
 
 <script>
@@ -17,4 +19,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+main {
+  padding: 2rem
+}
+</style>
