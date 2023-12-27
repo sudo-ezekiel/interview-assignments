@@ -1,11 +1,26 @@
 <template>
-  <div class="accordion-header">
+  <div class="accordion-header" v-if="loaded">
     <SearchInput :value="searchValue" v-on:changeValue="changeSearchValue" />
     <span class="items-length">
-      {{ this.apiData.length }} People
+      {{ this.apiData?.length || "-" }} People
     </span>
   </div>
-  <AccordionDisplay :items="items" :openedID="openAccordionID" v-on:changeOpened="changeOpened" />
+
+  <div v-if="loaded && apiData != null && !apiData?.length">
+    <p>No items found</p>
+  </div>
+
+  <div v-if="loaded && apiData == null">
+    <p class="error">Error retrieving Data</p>
+  </div>
+
+  <div v-if="!loaded">
+    <div class="load"></div>
+  </div>
+
+  <div v-if="loaded && apiData != null && apiData?.length">
+    <AccordionDisplay :items="items" :openedID="openAccordionID" v-on:changeOpened="changeOpened" />
+  </div>
 </template>
 
 <script>
@@ -19,6 +34,7 @@ export default {
     return {
       searchValue: "",
       openAccordionID: null,
+      loaded: false,
       apiData: [],
       items: []
     }
@@ -28,8 +44,25 @@ export default {
       .get('http://jsonplaceholder.typicode.com/users')
       .then(response => (
         this.apiData = response.data,
-        this.items = response.data
+        this.items = response.data,
+        this.loaded = true
+      )).catch((e) => (
+        console.error(e),
+        this.loaded = true,
+        this.apiData = null
       ))
+
+    // dev debug
+    // if there's no people
+    // this.apiData = [];
+    // this.loaded = true;
+
+    // if there's an error retrieving from api
+    // this.apiData = null;
+    // this.loaded = true;
+
+    // to display loading animation
+    // this.loaded = false;
   },
   watch: {
     /**
@@ -38,8 +71,7 @@ export default {
      */
     searchValue: {
       handler: function (newSearchBy) {
-        console.log(newSearchBy);
-        this.items = this.apiData.filter((item) => item?.name?.toLowerCase().includes(newSearchBy.toLowerCase()));
+        this.items = this.apiData?.filter((item) => item?.name?.toLowerCase().includes(newSearchBy.toLowerCase()));
       }
     }
   },
@@ -87,7 +119,6 @@ export default {
   margin-top: auto;
   margin-bottom: auto;
 }
-
 
 @media only screen and (max-width: 48em) {
   .accordion-header {
