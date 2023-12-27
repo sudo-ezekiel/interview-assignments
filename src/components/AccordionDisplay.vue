@@ -3,7 +3,7 @@
     <div v-for="item in items" :key="item.id" class="accordion" @click="changeOpenedID(item.id)">
       <div class="header">
         <h4 class="title">{{ item.name }}</h4>
-        <div>+</div>
+        <div>{{ openedID === item.id ? "-" : "+" }}</div>
       </div>
       <div class="content-wrapper" :class="isOpened(item.id)">
         <div class="content">
@@ -54,7 +54,7 @@ export default {
 
 .title {
   font-size: large;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .content-wrapper {

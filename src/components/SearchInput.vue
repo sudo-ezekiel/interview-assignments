@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <input :value="value" @input="changeSearchValue" class="input" placeholder="Search by name" />
-    <div class="icon">M</div>
+    <img src="../assets/search.png" class="icon">
   </div>
 </template>
 
@@ -33,9 +33,18 @@ export default {
   width: 100%;
 }
 
+.input::placeholder {
+  color: #b1b1b1;
+}
+
 .icon {
   border: 1px solid #e5e5e5;
   border-left: none;
   padding: 1rem;
+  content: url("../assets/search.png");
+}
+
+.icon:hover {
+  content: url("../assets/search-hover.png");
 }
 </style>

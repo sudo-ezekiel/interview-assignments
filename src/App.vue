@@ -20,6 +20,8 @@ export default {
 
 <style scoped>
 main {
-  padding: 2rem
+  padding: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 </style>

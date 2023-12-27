@@ -1,9 +1,9 @@
 <template>
   <div class="accordion-header">
     <SearchInput :value="searchValue" v-on:changeValue="changeSearchValue" />
-    <h4 class="items-length">
-      {{ items.length }} PEOPLE
-    </h4>
+    <span class="items-length">
+      {{ items.length }} People
+    </span>
   </div>
   <AccordionDisplay :items="items" :openedID="openAccordionID" v-on:changeOpened="changeOpened" />
 </template>
@@ -299,10 +299,9 @@ export default {
 }
 
 .items-length {
-  font-size: x-large;
-  font-weight: bold;
+  font-size: xx-large;
+  font-weight: 400;
   margin-top: auto;
   margin-bottom: auto;
-  color: #3f3f3e;
 }
 </style>
