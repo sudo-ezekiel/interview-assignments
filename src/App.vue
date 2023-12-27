@@ -24,4 +24,10 @@ main {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
+@media only screen and (max-width: 48em) {
+  main {
+    padding: 1rem;
+  }
+}
 </style>

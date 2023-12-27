@@ -29,7 +29,8 @@ export default {
   border: 1px solid #e5e5e5;
   border-right: none;
   padding: 1rem;
-  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
   width: 100%;
 }
 
@@ -46,5 +47,11 @@ export default {
 
 .icon:hover {
   content: url("../assets/search-hover.png");
+}
+
+@media only screen and (max-width: 48em) {
+  .wrapper {
+    width: 100%;
+  }
 }
 </style>

@@ -101,4 +101,10 @@ export default {
   font-weight: bold;
   cursor: pointer;
 }
+
+@media only screen and (max-width: 48em) {
+  .content {
+    flex-direction: column;
+  }
+}
 </style>
