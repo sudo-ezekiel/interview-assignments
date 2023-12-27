@@ -1,6 +1,11 @@
 <template>
-  <SearchInput />
-  <AccordionDisplay :items="apiData" :openedID="openAccordionID" v-on:changeOpened="changeOpened" />
+  <div class="accordion-header">
+    <SearchInput :value="searchValue" v-on:changeValue="changeSearchValue" />
+    <h4 class="items-length">
+      {{ items.length }} PEOPLE
+    </h4>
+  </div>
+  <AccordionDisplay :items="items" :openedID="openAccordionID" v-on:changeOpened="changeOpened" />
 </template>
 
 <script>
@@ -248,10 +253,31 @@ export default {
   },
   data() {
     return {
-      openAccordionID: null
+      searchValue: "",
+      openAccordionID: null,
+      items: this.apiData
+    }
+  },
+  watch: {
+    searchValue: {
+      handler: function (newSerchBy) {
+        this.items = this.apiData.filter((item) => item?.name?.includes(newSerchBy));
+      }
     }
   },
   methods: {
+    /**
+     * @param {string} newVal 
+     * changes the search value for the search input
+     */
+    changeSearchValue(newVal) {
+      this.searchValue = newVal;
+    },
+    /**
+     * @param {number} id the api data id, 
+     * I bind it to the opened accordion item
+     * so I know which accordion item is opened
+     */
     changeOpened(id) {
       this.openAccordionID = id;
     }
@@ -262,3 +288,21 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.accordion-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.items-length {
+  font-size: x-large;
+  font-weight: bold;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: #3f3f3e;
+}
+</style>

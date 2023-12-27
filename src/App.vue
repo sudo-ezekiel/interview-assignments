@@ -1,7 +1,6 @@
 <template>
   <NavbarDisplay />
   <main>
-    <h1>Hello world</h1>
     <AccordionController />
   </main>
 </template>
@@ -19,7 +18,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 main {
   padding: 2rem
 }

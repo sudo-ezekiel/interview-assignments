@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .navbar-wrapper {
     border-top: 2rem solid #00a3e4;
     border-bottom: 0.4rem solid #e5e5e5;
