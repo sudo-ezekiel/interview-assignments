@@ -7,9 +7,12 @@
       </div>
       <div class="content-wrapper" :class="isOpened(item.id)">
         <div class="content">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, dignissimos. Provident unde ipsa sunt
-          facilis
-          eaque. Fugiat tempora dolorem eius, totam qui id accusantium aspernatur fugit a tempore ipsam asperiores.
+          <img src="../assets/user.jpg" class="content-img" />
+          <div class="content-info">
+            <a :href="'mailto:' + item.email" class="content-email">{{ item.email }}</a>
+            <span>{{ item.address.street }} {{ item.address.suite }}</span>
+            <span>{{ item.address.zipcode }} {{ item.address.city }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -59,7 +62,6 @@ export default {
 
 .content-wrapper {
   transition: max-height 0.5s;
-  background: #e5feff;
   overflow: hidden;
   max-height: 0;
 }
@@ -69,6 +71,34 @@ export default {
 }
 
 .content {
-  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.content-img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.content-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+  gap: 0.5rem;
+  color: #b1b1b1;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.content-email {
+  color: #96dcff;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>
