@@ -1,6 +1,6 @@
 <template>
   <SearchInput />
-  <AccordionDisplay :items="apiData" />
+  <AccordionDisplay :items="apiData" :openedID="openAccordionID" v-on:changeOpened="changeOpened" />
 </template>
 
 <script>
@@ -240,10 +240,20 @@ export default {
           "bs": "target end-to-end models"
         }
       }
-    ]
+    ];
 
     return {
-      apiData
+      apiData,
+    }
+  },
+  data() {
+    return {
+      openAccordionID: null
+    }
+  },
+  methods: {
+    changeOpened(id) {
+      this.openAccordionID = id;
     }
   },
   components: {
