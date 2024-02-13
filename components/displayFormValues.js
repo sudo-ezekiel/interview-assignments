@@ -1,14 +1,7 @@
 const DisplayFormValues = ({ values }) => {
   return (
-    <div className="container bg-white p-3 position-relative shadow-lg mt-5">
-      <form
-        style={{
-          paddingLeft: "8rem",
-          paddingRight: "8rem",
-          minHeight: "50vh",
-          color: "#7B7B7B",
-        }}
-      >
+    <div className="container-fluid container-md bg-white p-3 position-relative shadow-lg mt-5">
+      <form className="formContainerDisplay">
         <h3
           className="text-center fw-medium text-black"
           style={{ paddingBottom: "2rem", paddingTop: "2rem" }}
@@ -17,7 +10,7 @@ const DisplayFormValues = ({ values }) => {
         </h3>
 
         <div
-          className="row p-4 rounded-2 text-center fw-medium"
+          className="row p-4 rounded-2 text-center fw-medium gap-4"
           style={{ backgroundColor: "#F4F4F4" }}
         >
           <div className="col">{values?.firstName || "Όνομα"}</div>

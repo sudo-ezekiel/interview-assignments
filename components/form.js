@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import FormInput from "./input";
+import { ArrowRight } from "react-bootstrap-icons";
 
 const ContactForm = ({ onSubmit }) => {
   const [firstName, setFirstName] = useState("");
@@ -35,17 +36,10 @@ const ContactForm = ({ onSubmit }) => {
 
   return (
     <div
-      className="container bg-white p-3 position-relative shadow-lg"
+      className="container-fluid container-md bg-white p-3 position-relative shadow-lg"
       style={{ marginTop: "-5rem", zIndex: 2 }}
     >
-      <form
-        style={{
-          paddingLeft: "8rem",
-          paddingRight: "8rem",
-          paddingBottom: "8rem",
-        }}
-        onSubmit={(event) => onSubmitForm(event)}
-      >
+      <form className="formContainer" onSubmit={(event) => onSubmitForm(event)}>
         <h3
           className="text-center fw-medium "
           style={{ paddingBottom: "2rem", paddingTop: "2rem" }}
@@ -132,13 +126,13 @@ const ContactForm = ({ onSubmit }) => {
           </div>
         </div>
 
-        <div className="col-md-12">
-          <div className="d-flex justify-content-end">
+        <div className="col-12 col-md-12">
+          <div className="d-flex justify-content-end ">
             <button
               type="submit"
               className="btn bg-black text-white p-3 px-5 float-right"
             >
-              Υποβολη {`->`}
+              Υποβολη <ArrowRight />
             </button>
           </div>
         </div>
