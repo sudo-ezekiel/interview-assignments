@@ -7,7 +7,6 @@ const Layout = ({ children, simpleFooter }) => {
       <Header />
       <main
         style={{
-          marginTop: "3.5rem",
           backgroundColor: "#f2f2f2",
         }}
       >

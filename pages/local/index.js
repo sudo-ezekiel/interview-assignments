@@ -18,6 +18,7 @@ export default function LocalPage() {
         backgroundColor: "#f2f2f2",
         paddingBottom: "8rem",
         paddingTop: "8rem",
+        marginTop: "4.5rem",
         minHeight: "90vh",
       }}
     >

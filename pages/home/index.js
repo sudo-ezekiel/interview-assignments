@@ -10,7 +10,7 @@ const HomePage = () => {
   return (
     <>
       <div
-        className="jumbotron p-3 p-md-5 text-white  bg-dark position-relative"
+        className="jumbotron p-3 p-md-5 text-white bg-dark position-relative"
         style={{
           height: "100vh",
         }}

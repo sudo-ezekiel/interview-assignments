@@ -16,6 +16,7 @@ const Form = () => {
       style={{
         backgroundColor: "#f2f2f2",
         paddingBottom: "16rem",
+        paddingTop: "4.5rem",
       }}
     >
       <div className="p-3">ΑΡΧΙΚΗ / ΦΟΡΜΑ ΕΠΙΚΟΙΝΩΝΙΑΣ</div>
