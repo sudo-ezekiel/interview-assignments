@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { prefix } from "./prefix";
+import { prefix } from "@/lib/prefix";
 
 const Header = () => {
   return (

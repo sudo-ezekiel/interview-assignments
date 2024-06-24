@@ -3,7 +3,7 @@ import Image from "next/image";
 import ContactForm from "@/components/form";
 import DisplayFormValues from "@/components/displayFormValues";
 
-import { prefix } from "@/components/prefix";
+import { prefix } from "@/lib/prefix";
 
 const Form = () => {
   const [formValues, setFormValues] = useState({});

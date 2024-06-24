@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { ArrowRight } from "react-bootstrap-icons";
-import { prefix } from "../prefix";
+import { prefix } from "@/lib/prefix";
 
 const PhotoGallerySection = () => {
   const router = useRouter();

@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 import { ArrowRight } from "react-bootstrap-icons";
 
-import { prefix } from "./prefix";
+import { prefix } from "@/lib/prefix";
 
 const HeroImageSection = () => {
   const router = useRouter();
