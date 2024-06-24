@@ -3,6 +3,8 @@ import { useRouter } from "next/navigation";
 
 import { ArrowRight } from "react-bootstrap-icons";
 
+import { prefix } from "./prefix";
+
 const HeroImageSection = () => {
   const router = useRouter();
   return (
@@ -13,7 +15,7 @@ const HeroImageSection = () => {
       }}
     >
       <Image
-        src="/assets/fullSizeHero.png"
+        src={`${prefix}/assets/fullSizeHero.png`}
         layout="fill"
         objectFit="cover"
         quality={100}

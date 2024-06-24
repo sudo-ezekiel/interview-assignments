@@ -3,6 +3,8 @@ import Image from "next/image";
 import ContactForm from "@/components/form";
 import DisplayFormValues from "@/components/displayFormValues";
 
+import { prefix } from "@/components/prefix";
+
 const Form = () => {
   const [formValues, setFormValues] = useState({});
 
@@ -28,7 +30,7 @@ const Form = () => {
         }}
       >
         <Image
-          src="/assets/fullSizeHero.png"
+          src={`${prefix}/assets/fullSizeHero.png`}
           layout="fill"
           objectFit="cover"
           style={{ zIndex: 1 }}

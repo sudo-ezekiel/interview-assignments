@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { ArrowRight } from "react-bootstrap-icons";
+import { prefix } from "../prefix";
 
 const PhotoGallerySection = () => {
   const router = useRouter();
@@ -14,10 +15,18 @@ const PhotoGallerySection = () => {
             <h4 className="text-decoration-underline">PHOTO GALLERY</h4>
             <div className="row pt-5 gap-5">
               <div className="col">
-                <Image width={400} height={500} src="/assets/gallery1.png" />
+                <Image
+                  width={400}
+                  height={500}
+                  src={`${prefix}/assets/gallery1.png`}
+                />
               </div>
               <div className="col">
-                <Image width={400} height={500} src="/assets/gallery2.png" />
+                <Image
+                  width={400}
+                  height={500}
+                  src={`${prefix}/assets/gallery2.png`}
+                />
               </div>
             </div>
           </div>
@@ -33,7 +42,11 @@ const PhotoGallerySection = () => {
               }}
             >
               <div className="position-relative">
-                <Image width={800} height={800} src="/assets/middle.png" />
+                <Image
+                  width={800}
+                  height={800}
+                  src={`${prefix}/assets/middle.png`}
+                />
 
                 <div
                   style={{
