@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -61,4 +67,45 @@ code {
 
 .news-list li:last-of-type {
   margin-bottom: 0;
+}
+
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  width: 100%;
+  max-width: 50rem;
+}
+
+@media (max-width: 480px) {
+  .input-container {
+    max-width: 100%;
+  }
+}
+
+.saved-stories-container {
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
+  max-width: 50rem;
+}
+
+@media (max-width: 480px) {
+  .saved-stories-container {
+    max-width: 100%;
+  }
 }

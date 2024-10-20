@@ -1,6 +1,6 @@
 import React from "react";
 
-import { isEmpty } from 'lodash';
+import { isEmpty } from "lodash";
 
 import { InputWithListProps } from "../types";
 
@@ -12,7 +12,7 @@ const InputWithList: React.FC<InputWithListProps> = ({
   label,
   placeholder,
 
-  listProps
+  listProps,
 }) => {
   return (
     <div id={inputWrapperId} className="search-wrapper">
@@ -28,17 +28,22 @@ const InputWithList: React.FC<InputWithListProps> = ({
         placeholder={placeholder}
         className="search-input"
       />
-      {!isEmpty(listProps) &&
-        <div style={{ position: 'relative' }}>
+      {!isEmpty(listProps) && (
+        <div style={{ position: "relative" }}>
           <ul id={listProps.listId} className="news-list">
             {listProps.listIsLoading && <li>loading</li>}
             {listProps.listHasError && <li>error</li>}
             {!listProps.listIsLoading &&
               listProps.list?.map((item: React.ReactNode, index: number) => (
-                <listProps.ListEntryComponent key={index} item={item} onClick={listProps.onListEntryClick} />
+                <listProps.ListEntryComponent
+                  key={index}
+                  item={item}
+                  onClick={listProps.onListEntryClick}
+                />
               ))}
           </ul>
-        </div>}
+        </div>
+      )}
     </div>
   );
 };
