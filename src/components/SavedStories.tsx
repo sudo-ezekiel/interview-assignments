@@ -3,6 +3,7 @@ import { deleteStory } from "../app/hackerNewsSlice";
 import { RootState } from "../app/store";
 
 import { HackerNewsStory } from "../types";
+import HackerNewsStoryEntry from "./HackerNewsStoryEntry";
 
 const SavedStories = () => {
   const dispatch = useDispatch();
@@ -15,15 +16,25 @@ const SavedStories = () => {
   return (
     <div
       className=""
-      style={{ display: "flex", flexDirection: "column", width: "100%" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        position: "relative",
+        zIndex: 0,
+      }}
     >
-      <h1 style={{ width: "100%" }}>Saved Stories</h1>
-      <br />
-      {stories?.map((item: HackerNewsStory, index: number) => (
-        <div key={index} onClick={() => handleDeleteStory(item.title)}>
-          {item.title}
-        </div>
-      ))}
+      <h1 style={{ width: "100%", marginBottom: "0.2rem" }}>Saved Stories</h1>
+      <ul className="saved-stories-list">
+        {stories?.map((item: HackerNewsStory, index: number) => (
+          <HackerNewsStoryEntry
+            key={index}
+            item={item}
+            showDelete
+            handleDelete={handleDeleteStory}
+          />
+        ))}
+      </ul>
     </div>
   );
 };

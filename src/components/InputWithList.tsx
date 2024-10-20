@@ -28,22 +28,27 @@ const InputWithList: React.FC<InputWithListProps> = ({
         placeholder={placeholder}
         className="search-input"
       />
-      {!isEmpty(listProps) && (
-        <div style={{ position: "relative" }}>
-          <ul id={listProps.listId} className="news-list">
-            {listProps.listIsLoading && <li>loading</li>}
-            {listProps.listHasError && <li>error</li>}
-            {!listProps.listIsLoading &&
-              listProps.list?.map((item: React.ReactNode, index: number) => (
-                <listProps.ListEntryComponent
-                  key={index}
-                  item={item}
-                  onClick={listProps.onListEntryClick}
-                />
-              ))}
-          </ul>
-        </div>
-      )}
+      {!isEmpty(listProps) &&
+        (listProps.listHasError ||
+          listProps.listHasError ||
+          listProps.listIsLoading ||
+          !isEmpty(listProps.list)) && (
+          <div style={{ position: "relative" }}>
+            <ul id={listProps.listId} className="search-results">
+              {listProps.listIsLoading && <li>Loading...</li>}
+              {listProps.listHasError && <li>Error</li>}
+              {!listProps.listIsLoading &&
+                listProps.list?.map((item: React.ReactNode, index: number) => (
+                  <listProps.ListEntryComponent
+                    key={index}
+                    item={item}
+                    onClick={listProps.onListEntryClick}
+                    showHighlighted
+                  />
+                ))}
+            </ul>
+          </div>
+        )}
     </div>
   );
 };

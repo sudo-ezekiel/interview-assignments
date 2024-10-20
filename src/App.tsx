@@ -9,8 +9,8 @@ import { addStory } from "./app/hackerNewsSlice";
 
 // components
 import InputWithList from "./components/InputWithList";
-import ListEntryComponent from "./components/ListEntryComponent";
 import SavedStories from "./components/SavedStories";
+import HackerNewsStoryEntry from "./components/HackerNewsStoryEntry";
 
 // types
 import { HackerNewsStory } from "./types";
@@ -65,7 +65,7 @@ function App() {
             listIsLoading: isLoading,
             listHasError: error,
             onListEntryClick: onListEntryClick,
-            ListEntryComponent: ListEntryComponent,
+            ListEntryComponent: HackerNewsStoryEntry,
           }}
         />
       </section>
