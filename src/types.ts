@@ -8,10 +8,10 @@ export interface HackerNewsStory {
 }
 
 export interface InputWithListProps {
-  inputWrapperId: string;
+  wrapperId: string;
   searchValue: string;
   setSearchValue: (str: string) => void;
-  inputId: string;
+  id: string;
   label: string;
   placeholder: string;
 

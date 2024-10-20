@@ -53,8 +53,8 @@ function App() {
     <div className="App">
       <section className="input-container">
         <InputWithList
-          inputId=""
-          inputWrapperId=""
+          id=""
+          wrapperId=""
           label="Search"
           placeholder="Search title"
           searchValue={searchValue}

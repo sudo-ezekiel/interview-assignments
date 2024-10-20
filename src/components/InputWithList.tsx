@@ -5,18 +5,18 @@ import { isEmpty } from "lodash";
 import { InputWithListProps } from "../types";
 
 const InputWithList: React.FC<InputWithListProps> = ({
-  inputWrapperId,
+  wrapperId,
   searchValue,
   setSearchValue,
-  inputId,
+  id,
   label,
   placeholder,
 
   listProps,
 }) => {
   return (
-    <div id={inputWrapperId} className="search-wrapper">
-      <label htmlFor={inputId} className="search-label">
+    <div id={wrapperId} className="search-wrapper">
+      <label htmlFor={id} className="search-label">
         {label}
       </label>
       <input
@@ -24,7 +24,7 @@ const InputWithList: React.FC<InputWithListProps> = ({
         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
           setSearchValue(event.target.value)
         }
-        id={inputId}
+        id={id}
         placeholder={placeholder}
         className="search-input"
       />
