@@ -44,7 +44,7 @@ function App() {
   });
 
   // on clicking a searched row
-  const onListEntryClick = (data: any) => {
+  const onClick = (data: any) => {
     dispatch(addStory(data));
     setSearchValue("");
   };
@@ -60,12 +60,12 @@ function App() {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           listProps={{
-            listId: "",
-            list: searchValue?.length < 3 ? undefined : data,
-            listIsLoading: isLoading,
-            listHasError: error,
-            onListEntryClick: onListEntryClick,
-            ListEntryComponent: HackerNewsStoryEntry,
+            id: "",
+            data: searchValue?.length < 3 ? undefined : data,
+            isLoading: isLoading,
+            hasError: error,
+            onClick: onClick,
+            EntryComponent: HackerNewsStoryEntry,
           }}
         />
       </section>

@@ -16,11 +16,11 @@ export interface InputWithListProps {
   placeholder: string;
 
   listProps: {
-    listId: string;
-    list: any[] | undefined;
-    listIsLoading: boolean;
-    listHasError: Error | null;
-    onListEntryClick: (item: any) => void;
-    ListEntryComponent: React.FC<any>;
+    id: string;
+    data: any[] | undefined;
+    isLoading: boolean;
+    hasError: Error | null;
+    onClick: (item: any) => void;
+    EntryComponent: React.FC<any>;
   };
 }
