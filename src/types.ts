@@ -33,3 +33,9 @@ export type HackerNewsStoryEntryProps = {
   onClick?: (item: HackerNewsStory) => void;
   showHighlighted?: boolean;
 };
+
+export type SavedStoriesProps = {
+  id: string;
+  stories: HackerNewsStory[];
+  handleDeleteStory: (id: number) => void;
+};

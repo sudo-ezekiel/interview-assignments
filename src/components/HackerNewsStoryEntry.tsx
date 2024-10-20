@@ -39,7 +39,7 @@ const HackerNewsStoryEntry: React.FC<HackerNewsStoryEntryProps> = ({
       </div>
 
       {showDelete && (
-        <div
+        <button
           onClick={() =>
             !isNil(item.story_id) && handleDelete && handleDelete(item.story_id)
           }
@@ -50,7 +50,7 @@ const HackerNewsStoryEntry: React.FC<HackerNewsStoryEntryProps> = ({
           }}
         >
           Delete
-        </div>
+        </button>
       )}
     </li>
   );

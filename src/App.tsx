@@ -4,8 +4,9 @@ import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 // redux
-import { useDispatch } from "react-redux";
-import { addStory } from "./app/hackerNewsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteStory, addStory } from "./app/hackerNewsSlice";
+import { RootState } from "./app/store";
 
 // components
 import InputWithList from "./components/InputWithList";
@@ -27,6 +28,11 @@ const fetchStories = async (query: string) => {
 function App() {
   // redux store dispatch
   const dispatch = useDispatch();
+  const stories = useSelector((state: RootState) => state.hackerNews);
+
+  const handleDeleteStory = (story_id: number) => {
+    dispatch(deleteStory(story_id));
+  };
 
   // input value for searching
   const [searchValue, setSearchValue] = useState<string>("");
@@ -71,7 +77,11 @@ function App() {
       </section>
 
       <section className="saved-stories-container">
-        <SavedStories id="saved-stories-list" />
+        <SavedStories
+          id="saved-stories-list"
+          stories={stories}
+          handleDeleteStory={handleDeleteStory}
+        />
       </section>
     </div>
   );

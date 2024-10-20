@@ -1,18 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import { deleteStory } from "../app/hackerNewsSlice";
-import { RootState } from "../app/store";
-
 import { HackerNewsStory } from "../types";
 import HackerNewsStoryEntry from "./HackerNewsStoryEntry";
 
-const SavedStories = ({ id }: { id: string }) => {
-  const dispatch = useDispatch();
-  const stories = useSelector((state: RootState) => state.hackerNews);
+import { SavedStoriesProps } from "../types";
 
-  const handleDeleteStory = (story_id: number) => {
-    dispatch(deleteStory(story_id));
-  };
-
+const SavedStories: React.FC<SavedStoriesProps> = ({
+  id,
+  stories,
+  handleDeleteStory,
+}) => {
   return (
     <div
       className=""
