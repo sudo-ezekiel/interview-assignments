@@ -5,12 +5,12 @@ import { RootState } from "../app/store";
 import { HackerNewsStory } from "../types";
 import HackerNewsStoryEntry from "./HackerNewsStoryEntry";
 
-const SavedStories = () => {
+const SavedStories = ({ id }: { id: string }) => {
   const dispatch = useDispatch();
   const stories = useSelector((state: RootState) => state.hackerNews);
 
-  const handleDeleteStory = (title: string) => {
-    dispatch(deleteStory(title));
+  const handleDeleteStory = (story_id: number) => {
+    dispatch(deleteStory(story_id));
   };
 
   return (
@@ -25,7 +25,7 @@ const SavedStories = () => {
       }}
     >
       <h1 style={{ width: "100%", marginBottom: "0.2rem" }}>Saved Stories</h1>
-      <ul className="saved-stories-list">
+      <ul className="saved-stories-list" id={id}>
         {stories?.map((item: HackerNewsStory, index: number) => (
           <HackerNewsStoryEntry
             key={index}

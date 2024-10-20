@@ -53,14 +53,14 @@ function App() {
     <div className="App">
       <section className="input-container">
         <InputWithList
-          id=""
-          wrapperId=""
+          wrapperId="input-wrapper"
+          id="search-input"
           label="Search"
           placeholder="Search title"
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           listProps={{
-            id: "",
+            id: "search-results",
             data: searchValue?.length < 3 ? undefined : data,
             isLoading: isLoading,
             hasError: error,
@@ -71,7 +71,7 @@ function App() {
       </section>
 
       <section className="saved-stories-container">
-        <SavedStories />
+        <SavedStories id="saved-stories-list" />
       </section>
     </div>
   );

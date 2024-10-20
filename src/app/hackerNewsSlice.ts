@@ -10,8 +10,8 @@ const hackerNewsSlice = createSlice({
     addStory: (state, action: PayloadAction<HackerNewsStory>) => {
       state.push(action.payload);
     },
-    deleteStory: (state, action: PayloadAction<string>) => {
-      return state.filter((story) => story.title !== action.payload);
+    deleteStory: (state, action: PayloadAction<number>) => {
+      return state.filter((story) => story.story_id !== action.payload);
     },
   },
 });

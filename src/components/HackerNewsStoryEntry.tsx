@@ -1,13 +1,15 @@
 import { useMemo } from "react";
-import { get } from "lodash";
+import { get, isNil } from "lodash";
 
-const HackerNewsStoryEntry = ({
+import { HackerNewsStoryEntryProps } from "../types";
+
+const HackerNewsStoryEntry: React.FC<HackerNewsStoryEntryProps> = ({
   item,
   showDelete = false,
   handleDelete,
   onClick,
   showHighlighted = false,
-}: any) => {
+}) => {
   // determine if title is highlighted or not by grabbing data from back
   const title = useMemo(() => {
     // _highlight results exists, therefore proccess it
@@ -24,6 +26,7 @@ const HackerNewsStoryEntry = ({
         flexDirection: "row",
         justifyContent: "space-between",
       }}
+      id={`${showHighlighted ? "search-results-list-li" : "saved-stories-list-li"}-${item.story_id}`}
       onClick={() => onClick && onClick(item)}
     >
       <div style={{ display: "flex", flexDirection: "column", width: "90%" }}>
@@ -37,7 +40,9 @@ const HackerNewsStoryEntry = ({
 
       {showDelete && (
         <div
-          onClick={() => handleDelete(item.title)}
+          onClick={() =>
+            !isNil(item.story_id) && handleDelete && handleDelete(item.story_id)
+          }
           style={{
             marginTop: "auto",
             marginBottom: "auto",
