@@ -14,7 +14,7 @@ const HackerNewsStoryEntry: React.FC<HackerNewsStoryEntryProps> = ({
   const title = useMemo(() => {
     // _highlight results exists, therefore proccess it
     if (get(item, "_highlightResult", false) && showHighlighted) {
-      return get(item, "_highlightResult.title.value", "");
+      return get(item, "_highlightResult.title.value", get(item, "_highlightResult.story_title.value", ""));
     }
     return get(item, "title", "");
   }, [item, showHighlighted]);

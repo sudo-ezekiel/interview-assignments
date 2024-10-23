@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 // react query
 import { useQuery } from "@tanstack/react-query";
@@ -35,17 +35,28 @@ function App() {
   };
 
   // input value for searching
+  const [debouncedSearchValue, setDebouncedSearchValue] = useState<string>("");
   const [searchValue, setSearchValue] = useState<string>("");
 
   // enable query conditionally by if search value has more than 3 characters
   const refetchEnable = useMemo(() => {
-    return searchValue?.length >= 3;
+    return debouncedSearchValue?.length >= 3;
+  }, [debouncedSearchValue]);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchValue(searchValue);
+    }, 300); // Delay of 300ms
+
+    return () => {
+      clearTimeout(handler); // Cleanup timeout on unmount or when searchValue changes
+    };
   }, [searchValue]);
 
   // query function
   const { data, error, isLoading } = useQuery<HackerNewsStory[], Error>({
-    queryKey: ["HackerNewsStory", searchValue],
-    queryFn: () => fetchStories(searchValue),
+    queryKey: ["HackerNewsStory", debouncedSearchValue],
+    queryFn: () => fetchStories(debouncedSearchValue),
     enabled: refetchEnable,
   });
 

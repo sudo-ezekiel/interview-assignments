@@ -34,7 +34,7 @@ const InputWithList: React.FC<InputWithListProps> = ({
           listProps.hasError ||
           !isEmpty(listProps.data)) && (
           <div style={{ position: "relative" }}>
-            <ul id={listProps.id} className="search-results">
+            <ul id={listProps.id} data-testid={listProps.id} className="search-results">
               {listProps.isLoading && <li>Loading...</li>}
               {listProps.hasError && <li>Error</li>}
               {!listProps.isLoading &&
