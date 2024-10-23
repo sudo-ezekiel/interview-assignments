@@ -25,6 +25,7 @@ const InputWithList: React.FC<InputWithListProps> = ({
           setSearchValue(event.target.value)
         }
         id={id}
+        data-testid={id}
         placeholder={placeholder}
         className="search-input"
       />
