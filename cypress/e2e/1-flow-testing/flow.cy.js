@@ -23,8 +23,20 @@ describe("Hacker News App", () => {
 
     cy.get(`[data-testid="search-results-list-li-${storyId}"]`).click();
 
-    cy.get('[data-testid="saved-stories-list"]').should("contain", "React");
-
     cy.log(`Saved story ID: ${storyId}`);
+
+    cy.get('[data-testid="saved-stories-list"]').should("be.visible");
+
+    cy.get(`[data-testid="saved-stories-list-li-${storyId}"]`).should("exist");
+
+    cy.get(`[data-testid="saved-stories-list-li-${storyId}"]`)
+      .find('[data-testid="delete-button"]')
+      .click();
+
+    cy.get(`[data-testid="saved-stories-list-li-${storyId}"]`).should(
+      "not.exist",
+    );
+
+    cy.log(`Deleted story ID: ${storyId}`);
   });
 });
