@@ -20,7 +20,7 @@ const SavedStories: React.FC<SavedStoriesProps> = ({
       }}
     >
       <h1 style={{ width: "100%", marginBottom: "0.2rem" }}>Saved Stories</h1>
-      <ul className="saved-stories-list" id={id}>
+      <ul className="saved-stories-list" id={id} data-testid={id}>
         {stories?.map((item: HackerNewsStory, index: number) => (
           <HackerNewsStoryEntry
             key={index}
