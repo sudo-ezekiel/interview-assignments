@@ -14,7 +14,11 @@ const HackerNewsStoryEntry: React.FC<HackerNewsStoryEntryProps> = ({
   const title = useMemo(() => {
     // _highlight results exists, therefore proccess it
     if (get(item, "_highlightResult", false) && showHighlighted) {
-      return get(item, "_highlightResult.title.value", get(item, "_highlightResult.story_title.value", ""));
+      return get(
+        item,
+        "_highlightResult.title.value",
+        get(item, "_highlightResult.story_title.value", ""),
+      );
     }
     return get(item, "title", "");
   }, [item, showHighlighted]);
@@ -50,8 +54,9 @@ const HackerNewsStoryEntry: React.FC<HackerNewsStoryEntryProps> = ({
             !isNil(item.story_id) && handleDelete && handleDelete(item.story_id)
           }
           style={{
-            marginTop: "auto",
-            marginBottom: "auto",
+            appearance: "none",
+            border: "none",
+            backgroundColor: "inherit",
             cursor: "pointer",
           }}
         >
