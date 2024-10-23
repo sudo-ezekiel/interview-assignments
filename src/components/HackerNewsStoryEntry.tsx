@@ -27,10 +27,14 @@ const HackerNewsStoryEntry: React.FC<HackerNewsStoryEntryProps> = ({
         justifyContent: "space-between",
       }}
       id={`${showHighlighted ? "search-results-list-li" : "saved-stories-list-li"}-${item.story_id}`}
+      data-testid={`${showHighlighted ? "search-results-list-li" : "saved-stories-list-li"}-${item.story_id}`}
       onClick={() => onClick && onClick(item)}
     >
       <div style={{ display: "flex", flexDirection: "column", width: "90%" }}>
-        <span dangerouslySetInnerHTML={{ __html: title }} />
+        <span
+          data-testid="hacker-news-story-title"
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
         <div className="hacker-news-story-info">
           <span>{item.points} points</span>
           <span>by {item.author}</span>
@@ -40,6 +44,8 @@ const HackerNewsStoryEntry: React.FC<HackerNewsStoryEntryProps> = ({
 
       {showDelete && (
         <button
+          id="delete-button"
+          data-testid="delete-button"
           onClick={() =>
             !isNil(item.story_id) && handleDelete && handleDelete(item.story_id)
           }

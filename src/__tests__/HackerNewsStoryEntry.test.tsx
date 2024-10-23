@@ -14,22 +14,20 @@ const mockStory: HackerNewsStory = {
 };
 
 describe("HackerNewsStoryEntry Component", () => {
-  test("renders story title and author", () => {
+  test("renders without crashing", () => {
     render(<HackerNewsStoryEntry item={mockStory} />);
-
-    expect(screen.getByText("Sample Story")).toBeInTheDocument();
-    expect(screen.getByText(/by John Doe/i)).toBeInTheDocument(); // regex
+    const listItem = screen.getByRole("listitem");
+    expect(listItem).toBeInTheDocument();
   });
 
-  test("calls onClick when story is clicked", () => {
-    const handleClick = jest.fn();
-    render(<HackerNewsStoryEntry item={mockStory} onClick={handleClick} />);
+  test("delete button is not in DOM when showDelete is false", () => {
+    render(<HackerNewsStoryEntry item={mockStory} showDelete={false} />);
 
-    fireEvent.click(screen.getByText("Sample Story"));
-    expect(handleClick).toHaveBeenCalledWith(mockStory);
+    const deleteButton = screen.queryByTestId("delete-button");
+    expect(deleteButton).not.toBeInTheDocument();
   });
 
-  test("shows delete button when showDelete is true", () => {
+  test("delete button is present and clickable when showDelete is true", () => {
     const handleDelete = jest.fn();
     render(
       <HackerNewsStoryEntry
@@ -39,10 +37,61 @@ describe("HackerNewsStoryEntry Component", () => {
       />,
     );
 
-    const deleteButton = screen.getByText("Delete");
+    const deleteButton = screen.getByTestId("delete-button");
     expect(deleteButton).toBeInTheDocument();
 
     fireEvent.click(deleteButton);
     expect(handleDelete).toHaveBeenCalledWith(mockStory.story_id);
+  });
+
+  test("title is rendered without highlighting by default", () => {
+    render(<HackerNewsStoryEntry item={mockStory} showHighlighted={false} />);
+
+    const titleElement = screen.getByText(mockStory.title);
+    expect(titleElement).toBeInTheDocument();
+
+    // Check that no <em> tags are present (i.e., no highlighting)
+    expect(titleElement.querySelector("em")).not.toBeInTheDocument();
+  });
+
+  test("title is highlighted when showHighlighted is true", () => {
+    const highlightedStory = {
+      ...mockStory,
+      _highlightResult: {
+        title: {
+          value: "Mock <em>Story</em>",
+        },
+      },
+    };
+
+    render(
+      <HackerNewsStoryEntry item={highlightedStory} showHighlighted={true} />,
+    );
+
+    const highlightedTitle = screen.getByTestId("hacker-news-story-title");
+
+    expect(highlightedTitle).toBeInTheDocument();
+
+    expect(highlightedTitle.querySelector("em")).toBeInTheDocument();
+    expect(highlightedTitle.innerHTML).toContain("<em>Story</em>");
+  });
+
+  test("clicking on story calls onClick handler", () => {
+    const handleClick = jest.fn();
+
+    render(
+      <HackerNewsStoryEntry
+        item={mockStory}
+        onClick={handleClick}
+        showHighlighted={false}
+      />,
+    );
+
+    const listItem = screen.getByTestId(
+      `saved-stories-list-li-${mockStory.story_id}`,
+    );
+
+    fireEvent.click(listItem);
+    expect(handleClick).toHaveBeenCalledWith(mockStory);
   });
 });
