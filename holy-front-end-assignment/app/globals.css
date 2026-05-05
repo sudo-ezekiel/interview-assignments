@@ -1,0 +1,113 @@
+body {
+  background-color: #2e3233;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100vw;
+  margin: 0;
+}
+
+main {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+nav {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* CHANGING CURSOR  */
+body {
+  cursor: url("/assets/img/cursor1.svg"), auto;
+}
+
+.magnetic-pull {
+  cursor: url("/assets/img/cursor3.svg"), auto;
+}
+
+/* MAGNETING PULL */
+
+.magnetic-pull {
+  border: none;
+  padding: 0;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  touch-action: none;
+}
+
+.magnetic-pull span {
+  display: inline-block;
+}
+
+.magnetic-pull--hover {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.magneticpull {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.magneticpull .arrowcircle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: all 0.6s ease-in-out;
+}
+
+.magneticpull:hover .arrowcircle {
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #eeff33;
+}
+
+.magneticpull:hover .align {
+  opacity: 1;
+}
+
+.magneticpull .align {
+  opacity: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.breakingSections {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  main {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .breakingSections {
+    display: block;
+    border-top: solid 0.1rem #f6fbfb;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
