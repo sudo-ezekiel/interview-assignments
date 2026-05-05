@@ -1,0 +1,86 @@
+.imageWithShadow::first-line {
+  box-shadow: inset 0px 0px 20px 10px rgba(0, 0, 0, 0.6);
+}
+
+.homePageContainer {
+  position: fixed;
+  bottom: 4rem;
+  left: 50%;
+  z-index: 100;
+  width: 90%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.homePageHalfSizeImages {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+
+.photoGalleryFormClick {
+  display: none;
+}
+
+.formContainer {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 4rem;
+}
+
+.formContainerDisplay {
+  padding-left: 4rem;
+  padding-right: 4rem;
+  min-height: 50vh;
+  color: "#7B7B7B";
+}
+
+/* 
+  X-Small devices (portrait phones, less than 576px)
+  No media query for `xs` since this is the default in Bootstrap
+*/
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .homePageHalfSizeImages {
+    width: 50%;
+    height: 50vh;
+  }
+  .homePageContainer {
+    position: absolute;
+    bottom: 4rem;
+    right: 4rem;
+    width: 45%;
+    transform: none;
+  }
+  .formContainer {
+    padding-left: 8rem;
+    padding-right: 8rem;
+    padding-bottom: 8rem;
+  }
+  .formContainerDisplay {
+    padding-left: 8rem;
+    padding-right: 8rem;
+    min-height: 50vh;
+    color: "#7B7B7B";
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  .photoGalleryFormClick {
+    display: inline-block;
+  }
+}
